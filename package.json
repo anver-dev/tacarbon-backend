@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js --exec babel-node",
+    "babel-node": "babel-node --presets=@babel/preset-env",
+    "dev": "nodemon --exec npm run babel-node src/app.js",
     "build": "babel src --out-dir dist ",
     "start": "node dist app.js"
-
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/anver-dev/tacarbon-backend#readme",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "morgan": "^1.10.0",
     "pg": "^8.7.3",
@@ -31,7 +32,8 @@
   "devDependencies": {
     "@babel/cli": "^7.17.0",
     "@babel/core": "^7.17.2",
-    "@babel/preset-env": "^7.16.11"
-
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
   }
 }

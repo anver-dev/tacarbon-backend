@@ -1,11 +1,12 @@
-import Sequelize from "sequelize/type";
+import Sequelize from "sequelize";
 import { sequelize } from "../database/database";
 
-sequelize.define(
+const Insumos = sequelize.define(
   "insumos",
   {
     id_insumo: {
       type: Sequelize.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
     },
     descripcion: {
@@ -15,7 +16,7 @@ sequelize.define(
       type: Sequelize.INTEGER,
     },
     cantidad: {
-      type: Sequelize.TEXT,
+      type: Sequelize.INTEGER,
     },
     id_categoria_insumo: {
       type: Sequelize.INTEGER,
@@ -25,6 +26,7 @@ sequelize.define(
     },
     fecha_registro: {
       type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW,
     },
     id_usuario_edicion: {
       type: Sequelize.INTEGER,
@@ -40,3 +42,5 @@ sequelize.define(
     timestamps: false,
   }
 );
+
+export default Insumos;
