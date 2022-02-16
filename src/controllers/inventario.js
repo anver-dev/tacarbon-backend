@@ -8,18 +8,21 @@ export async function createInsumo(req, res) {
     id_categoria_insumo,
     id_usuario_registro,
   } = req.body;
+  try {
+    let insumoCreated = await Insumos.create({
+      descripcion,
+      stock,
+      cantidad,
+      id_categoria_insumo,
+      id_usuario_registro,
+      activo: 1,
+    });
 
-  let insumoCreated = await Insumos.create({
-    descripcion,
-    stock,
-    cantidad,
-    id_categoria_insumo,
-    id_usuario_registro,
-    activo: true,
-  });
-
-  res.json({
-    message: "Insumo created successfully",
-    data: insumoCreated,
-  });
+    res.json({
+      message: "Insumo created successfully",
+      data: insumoCreated,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }

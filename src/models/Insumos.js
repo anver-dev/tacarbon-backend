@@ -35,7 +35,7 @@ const Insumos = sequelize.define(
       type: Sequelize.DATE,
     },
     activo: {
-      type: Sequelize.BOOLEAN,
+      type: Sequelize.INTEGER,
     },
   },
   {
